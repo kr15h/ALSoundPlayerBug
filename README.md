@@ -17,3 +17,5 @@ I'm running the following version of Linux:
 ```
 Linux raspberrypi 3.12.31+ #720 PREEMPT Sat Nov 1 13:15:06 GMT 2014 armv6l GNU/Linux
 ```
+
+openFrameworks version: 0.8.4
