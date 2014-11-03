@@ -1,16 +1,20 @@
 #include "ofApp.h"
 
+ofApp::ofApp():bCanLoad(true) {};
+
 void ofApp::setup() {
   ofSetFrameRate(5);
-  createNewPlayer();
 }
 
 void ofApp::update() {
-  if (!player->getIsPlaying()) {
-    ofLogNotice("ofApp") << "Removing player at " << ofGetElapsedTimef();
-    player->unloadSound();
-    delete player;
+  if (bCanLoad) {
     createNewPlayer();
+    bCanLoad = false;
+  } else {
+    if (!player->getIsPlaying()) {
+      removePlayer();
+      bCanLoad = true;
+    }
   }
 }
 
@@ -19,4 +23,10 @@ void ofApp::createNewPlayer() {
   player = new ofSoundPlayer();
   player->loadSound("sound.wav");
   player->play();
+}
+
+void ofApp::removePlayer() {
+  ofLogNotice("ofApp") << "Removing player at " << ofGetElapsedTimef();
+  player->unloadSound();
+  delete player;
 }
