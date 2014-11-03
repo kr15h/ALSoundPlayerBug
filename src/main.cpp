@@ -1,6 +1,6 @@
 #include "ofMain.h"
 #include "ofApp.h"
-#include "ofAppNowindow.h"
+#include "ofAppNoWindow.h"
 
 int main() {
   ofAppNoWindow window;
